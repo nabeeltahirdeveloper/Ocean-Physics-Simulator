@@ -1,0 +1,9 @@
+{
+  "name": "Ocean Physics Simulator",
+  "short_name": "OceanLab",
+  "description": "Interactive 3D ocean physics laboratory",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#06101b",
+  "theme_color": "#06101b"
+}

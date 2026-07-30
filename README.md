@@ -9,9 +9,20 @@
   <img alt="NumPy" src="https://img.shields.io/badge/NumPy-2.0%2B-013243?logo=numpy">
   <img alt="Matplotlib" src="https://img.shields.io/badge/Matplotlib-3.9%2B-11557C">
   <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-2ea44f">
+  <a href="https://nabeeltahirdeveloper.github.io/Ocean-Physics-Simulator/"><img alt="Live Web App" src="https://img.shields.io/badge/Live-Web_App-42d6ff"></a>
 </p>
 
 ![Ocean Physics Simulator 3D surface](docs/images/ocean-surface.png)
+
+## Try it in your browser
+
+The complete browser edition runs without installation:
+
+### [Launch the Ocean Physics Simulator →](https://nabeeltahirdeveloper.github.io/Ocean-Physics-Simulator/)
+
+It includes a responsive real-time 3D surface, all seven factor categories,
+mouse and touch camera controls, fullscreen mode, live telemetry, and a detailed
+explanation of the underlying model.
 
 ## Overview
 
@@ -140,6 +151,8 @@ shoaling, damping, and a configurable depth-limited breaking cap.
 ├── ocean_wave_simulator.py   # simulation model and interactive interface
 ├── start_simulator.command   # macOS launcher
 ├── requirements.txt          # runtime dependencies
+├── web/                       # standalone browser application
+├── .github/workflows/         # automatic GitHub Pages deployment
 ├── docs/images/              # repository screenshots
 ├── CONTRIBUTING.md
 ├── LICENSE

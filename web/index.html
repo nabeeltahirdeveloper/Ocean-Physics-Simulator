@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06101b">
+  <meta name="description" content="Explore wind, gravity, tides, currents, Earth rotation and water physics in an interactive 3D ocean simulation.">
+  <meta property="og:title" content="Ocean Physics Simulator">
+  <meta property="og:description" content="An interactive 3D laboratory for understanding the forces that shape the ocean.">
+  <meta property="og:image" content="og.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Ocean Physics Simulator</title>
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Ocean Physics Simulator home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Ocean<span>Lab</span></span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#simulator">Simulator</a>
+      <a href="#physics">Physics</a>
+      <a href="https://github.com/nabeeltahirdeveloper/Ocean-Physics-Simulator" target="_blank" rel="noreferrer">GitHub ↗</a>
+    </nav>
+    <a class="header-cta" href="#simulator">Launch simulator</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow"><span></span> Interactive ocean laboratory</div>
+      <h1>See the forces that<br><em>shape the sea.</em></h1>
+      <p>Adjust wind, gravity, lunar tides, currents, Earth rotation, and water properties. Watch a physically inspired ocean respond in real time.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#simulator">Start exploring <span>↓</span></a>
+        <a class="button button-ghost" href="#physics">How it works</a>
+      </div>
+      <div class="hero-metrics" aria-label="Application highlights">
+        <div><strong>41</strong><span>Live parameters</span></div>
+        <div><strong>7</strong><span>Physics systems</span></div>
+        <div><strong>60</strong><span>Wave components</span></div>
+        <div><strong>∞</strong><span>Sea states</span></div>
+      </div>
+    </section>
+
+    <section class="simulator-section" id="simulator">
+      <div class="section-heading">
+        <div>
+          <span class="section-index">01 / SIMULATOR</span>
+          <h2>Your ocean laboratory</h2>
+        </div>
+        <p>Drag to orbit · Scroll to zoom · Change any factor live</p>
+      </div>
+
+      <div class="app-shell">
+        <div class="viewport-card">
+          <canvas id="oceanCanvas" aria-label="Interactive three-dimensional ocean surface"></canvas>
+          <div class="viewport-topbar">
+            <div class="live-indicator"><span></span> Live simulation</div>
+            <div class="view-actions">
+              <button id="pauseButton" type="button" aria-label="Pause simulation">Ⅱ</button>
+              <button id="resetButton" type="button" aria-label="Generate a new sea">↻</button>
+              <button id="fullscreenButton" type="button" aria-label="Enter fullscreen">⛶</button>
+            </div>
+          </div>
+          <div class="axis-label axis-y">NORTH</div>
+          <div class="axis-label axis-x">EAST</div>
+          <div class="telemetry">
+            <div><span>Hs</span><strong id="statHeight">1.24 m</strong></div>
+            <div><span>Peak period</span><strong id="statPeriod">7.8 s</strong></div>
+            <div><span>Tide</span><strong id="statTide">+0.42 m</strong></div>
+            <div><span>Current</span><strong id="statCurrent">0.35 m/s</strong></div>
+          </div>
+          <div class="interaction-hint">DRAG TO ROTATE</div>
+        </div>
+
+        <aside class="control-panel" aria-label="Simulation controls">
+          <div class="panel-heading">
+            <div>
+              <span>PARAMETERS</span>
+              <strong id="activeGroupTitle">Wind</strong>
+            </div>
+            <button id="defaultsButton" type="button">Reset defaults</button>
+          </div>
+          <div class="factor-tabs" id="factorTabs" role="tablist" aria-label="Factor categories"></div>
+          <div class="controls-scroll" id="controlsContainer"></div>
+          <div class="panel-footer">
+            <div><span>SIM TIME</span><strong id="simTime">00:00:00</strong></div>
+            <div><span>STATUS</span><strong class="status">RUNNING</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="physics-section" id="physics">
+      <div class="section-heading">
+        <div>
+          <span class="section-index">02 / THE MODEL</span>
+          <h2>Complex systems, made tangible</h2>
+        </div>
+        <p>A responsive teaching model built from established oceanographic relationships.</p>
+      </div>
+      <div class="physics-grid">
+        <article>
+          <span class="card-number">01</span>
+          <div class="card-icon wind-icon" aria-hidden="true">≈</div>
+          <h3>Wind sea</h3>
+          <p>A directional spectrum responds to wind speed, fetch, duration, gusts, and air density.</p>
+          <code>Hs ∝ U² / g</code>
+        </article>
+        <article>
+          <span class="card-number">02</span>
+          <div class="card-icon" aria-hidden="true">◐</div>
+          <h3>Astronomical tides</h3>
+          <p>Lunar and solar forcing combine through distance, phase, declination, and orbital position.</p>
+          <code>η ∝ GM R² / gr³</code>
+        </article>
+        <article>
+          <span class="card-number">03</span>
+          <div class="card-icon" aria-hidden="true">↻</div>
+          <h3>Rotating Earth</h3>
+          <p>Latitude and planetary rotation create Coriolis turning in the simulated surface current.</p>
+          <code>f = 2Ω sin φ</code>
+        </article>
+        <article>
+          <span class="card-number">04</span>
+          <div class="card-icon" aria-hidden="true">⌁</div>
+          <h3>Finite-depth waves</h3>
+          <p>Depth, gravity, density, and surface tension control how each spectral component travels.</p>
+          <code>ω² = (gk + σk³/ρ)tanh(kh)</code>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <span class="section-index">OPEN SOURCE · EDUCATIONAL · INTERACTIVE</span>
+      <h2>Change one force.<br>Watch the whole ocean answer.</h2>
+      <a class="button button-primary" href="#simulator">Open the laboratory <span>↑</span></a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Ocean<span>Lab</span></span>
+    </a>
+    <p>Educational simulation—not for forecasting, navigation, or safety decisions.</p>
+    <a href="https://github.com/nabeeltahirdeveloper/Ocean-Physics-Simulator" target="_blank" rel="noreferrer">Source on GitHub ↗</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
